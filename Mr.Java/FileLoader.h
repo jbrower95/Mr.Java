@@ -16,6 +16,8 @@
  
  To change the comments format, simply change the define below
  
+ We also ignore whitespace lines
+ 
  */
 
 #define COMMENT_SYMBOL @"#"

@@ -18,7 +18,17 @@
     done = NO;
     return self;
 }
-
+- (BOOL)stringIsGood:(NSString *)s
+{
+    // discerns between all whitespaces lines and lines with content
+    NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSString *trimmed = [s stringByTrimmingCharactersInSet:whitespace];
+    if ([trimmed length] == 0) {
+        return NO;
+    }
+    return YES;
+    
+}
 - (BOOL)loadFileFromData:(NSData *)data
 {
     loadedKeys = [[NSMutableDictionary alloc] init];
@@ -36,7 +46,7 @@
     NSMutableArray *goodRows = [NSMutableArray array];
     for ( NSString *s in components )
     {
-        if ( ![s hasPrefix:COMMENT_SYMBOL] )
+        if ( ![s hasPrefix:COMMENT_SYMBOL] && [self stringIsGood:s] )
         {
             // copy over the line, it's not a comment.
             [goodRows addObject:s];
