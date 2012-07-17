@@ -14,6 +14,23 @@
 {
     // this will allow us to override the method for displaying a new document!!
     
+    controller = [[NewDocumentController alloc] init];
+    [controller showWindow:self];
+    [controller setRef:self];
+    [controller.window makeKeyAndOrderFront:self];
+}
+
+- (void)loadDocumentWithFilename:(NSString *)filename
+{
+    NSDocument *doc = [[Document alloc] init];
+    filename = [NSString stringWithFormat:@"file:/%@",filename];
+    printf("filename: %s\n",[filename UTF8String]);
+    
+    [doc readFromURL:[NSURL URLWithString:filename] ofType:@"mrj" error:nil];
+    [doc makeWindowControllers];
+    [doc showWindows];
+    [controller.window close];
+    [controller release];
     
 }
 

@@ -7,7 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "NewDocumentController.h"
+#import "Document.h"
 @interface DocumentController : NSDocumentController
-
+{
+    NewDocumentController *controller;
+    
+}
 @end

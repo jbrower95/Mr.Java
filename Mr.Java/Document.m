@@ -43,6 +43,8 @@
         mainClass = [[fileLoader propertyForKey:@"MAIN_CLASS"] retain];
         [projectname setStringValue:[fileLoader propertyForKey:@"PROJECT_NAME"]];
         
+        [aController.window setTitle:documentName];
+        
     }
     [checkMark setHidden:YES];
     [crossMark setHidden:YES];
@@ -299,11 +301,11 @@
     [arguments addObject:[fileLoader propertyForKey:@"MAIN_CLASS"]];
     
     
-    for ( NSString *a in arguments )
-    {
-        NSLog(@"args: %@",a);
+  //  for ( NSString *a in arguments )
+    //{
+      //  NSLog(@"args: %@",a);
         
-    }
+   // }
     [task setArguments:arguments];
     
     [task launch];

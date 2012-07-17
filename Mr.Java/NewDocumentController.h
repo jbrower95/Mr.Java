@@ -9,5 +9,20 @@
 #import <Cocoa/Cocoa.h>
 
 @interface NewDocumentController : NSWindowController
+{
+    
+    IBOutlet NSTextField *projectName;
+    
+    IBOutlet NSTextField *mainClass;
+    
+    IBOutlet NSTextField *mainDir;
+    
+    id ref;
+    
+}
+@property (nonatomic, retain) id ref;
+- (IBAction)searchDir:(id)sender;
+
+- (IBAction)create:(id)sender;
 
 @end
