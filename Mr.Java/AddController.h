@@ -12,7 +12,7 @@
 {
     NSString *mDir;
     NSString *f;
-    
+    int addCode;
     IBOutlet NSTextField *projectName;
     
 }
