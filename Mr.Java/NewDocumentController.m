@@ -73,11 +73,12 @@
     NSSavePanel *savePanel = [NSSavePanel savePanel];
     [savePanel setCanCreateDirectories:YES];
   
-    NSString *filename;
+    NSString *filename; NSURL *dump;
     if ( [savePanel runModal] == NSOKButton )
     {
         filename = [[savePanel URL] path];
-        
+        dump = [savePanel URL];
+        [dump retain];
         if ( ![filename hasSuffix:@".mrj"] )
         {
             filename = [[filename stringByAppendingString:@".mrj"] retain];
@@ -86,6 +87,8 @@
         
         
     }
+    
+    
     
     
     NSString *mainC = ([mainClass stringValue].length == 0) ? @"__NONE__" : [mainClass stringValue];
@@ -113,7 +116,7 @@
     }
     
     
-    [ref loadDocumentWithFilename:filename];
+    [ref loadDocumentWithFilename:dump];
     [self close];
     
     

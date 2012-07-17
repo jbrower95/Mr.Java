@@ -171,11 +171,18 @@
         [classP appendString:@":"];
         
     }
+    @try{
     NSRange range = NSMakeRange([classP length]-1,1);
     [classP replaceCharactersInRange:range withString:@""];
     
     [arguments addObject:classP];
-    
+    }
+    @catch ( NSException *e )
+    {
+        // it dun failed
+        // do something else maybe?
+        
+    }
     // compile the classpath from the LIB folder
     
     
@@ -317,6 +324,12 @@
     
     
     
+    
+    
+}
+- (NSString *)displayName
+{
+    return ([fileLoader propertyForKey:@"PROJECT_NAME"] ? [fileLoader propertyForKey:@"PROJECT_NAME"] : [super displayName]);
     
     
 }

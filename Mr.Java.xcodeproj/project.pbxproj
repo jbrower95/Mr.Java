@@ -26,6 +26,11 @@
 		D0454BD915B4A78300A33FE0 /* success.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0454BD815B4A78300A33FE0 /* success.wav */; };
 		D0454BDB15B4ABE100A33FE0 /* failure.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0454BDA15B4ABE100A33FE0 /* failure.wav */; };
 		D0454BDD15B4AC4B00A33FE0 /* redx.png in Resources */ = {isa = PBXBuildFile; fileRef = D0454BDC15B4AC4B00A33FE0 /* redx.png */; };
+		D0454BE015B4CF7800A33FE0 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0454BDF15B4CF7800A33FE0 /* ApplicationDelegate.m */; };
+		D0454BE315B4D0F600A33FE0 /* DocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0454BE215B4D0F600A33FE0 /* DocumentController.m */; };
+		D0454BE615B4D4CC00A33FE0 /* NewDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0454BE515B4D4CC00A33FE0 /* NewDocumentController.m */; };
+		D0454BE815B4D50C00A33FE0 /* NewDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0454BE715B4D50C00A33FE0 /* NewDocument.xib */; };
+		D09B941015B51EFB0086088C /* copy.wav in Resources */ = {isa = PBXBuildFile; fileRef = D09B940F15B51EFB0086088C /* copy.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,14 @@
 		D0454BD815B4A78300A33FE0 /* success.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = success.wav; sourceTree = "<group>"; };
 		D0454BDA15B4ABE100A33FE0 /* failure.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = failure.wav; sourceTree = "<group>"; };
 		D0454BDC15B4AC4B00A33FE0 /* redx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redx.png; sourceTree = "<group>"; };
+		D0454BDE15B4CF7800A33FE0 /* ApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationDelegate.h; sourceTree = "<group>"; };
+		D0454BDF15B4CF7800A33FE0 /* ApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationDelegate.m; sourceTree = "<group>"; };
+		D0454BE115B4D0F600A33FE0 /* DocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentController.h; sourceTree = "<group>"; };
+		D0454BE215B4D0F600A33FE0 /* DocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentController.m; sourceTree = "<group>"; };
+		D0454BE415B4D4CC00A33FE0 /* NewDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDocumentController.h; sourceTree = "<group>"; };
+		D0454BE515B4D4CC00A33FE0 /* NewDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDocumentController.m; sourceTree = "<group>"; };
+		D0454BE715B4D50C00A33FE0 /* NewDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewDocument.xib; sourceTree = "<group>"; };
+		D09B940F15B51EFB0086088C /* copy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = copy.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +148,11 @@
 		D0454B4815B3CE1200A33FE0 /* Mr.Java */ = {
 			isa = PBXGroup;
 			children = (
+				D0454BE415B4D4CC00A33FE0 /* NewDocumentController.h */,
+				D0454BE515B4D4CC00A33FE0 /* NewDocumentController.m */,
+				D0454BE715B4D50C00A33FE0 /* NewDocument.xib */,
+				D0454BE115B4D0F600A33FE0 /* DocumentController.h */,
+				D0454BE215B4D0F600A33FE0 /* DocumentController.m */,
 				D0454B5415B3CE1300A33FE0 /* Document.h */,
 				D0454B5515B3CE1300A33FE0 /* Document.m */,
 				D0454B5715B3CE1300A33FE0 /* Document.xib */,
@@ -148,6 +166,8 @@
 				D0454BCE15B48A8600A33FE0 /* AddToProject.xib */,
 				D0454BD315B48BEA00A33FE0 /* AddController.h */,
 				D0454BD415B48BEA00A33FE0 /* AddController.m */,
+				D0454BDE15B4CF7800A33FE0 /* ApplicationDelegate.h */,
+				D0454BDF15B4CF7800A33FE0 /* ApplicationDelegate.m */,
 			);
 			path = Mr.Java;
 			sourceTree = "<group>";
@@ -155,6 +175,7 @@
 		D0454B4915B3CE1200A33FE0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D09B940F15B51EFB0086088C /* copy.wav */,
 				D0454BDA15B4ABE100A33FE0 /* failure.wav */,
 				D0454BD815B4A78300A33FE0 /* success.wav */,
 				D0454BD615B4A6D400A33FE0 /* checkmark.png */,
@@ -265,6 +286,8 @@
 				D0454BD915B4A78300A33FE0 /* success.wav in Resources */,
 				D0454BDB15B4ABE100A33FE0 /* failure.wav in Resources */,
 				D0454BDD15B4AC4B00A33FE0 /* redx.png in Resources */,
+				D0454BE815B4D50C00A33FE0 /* NewDocument.xib in Resources */,
+				D09B941015B51EFB0086088C /* copy.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +327,9 @@
 				D0454B7B15B3D5C600A33FE0 /* FileLoader.m in Sources */,
 				D0454BCC15B4884600A33FE0 /* NSMView.m in Sources */,
 				D0454BD515B48BEA00A33FE0 /* AddController.m in Sources */,
+				D0454BE015B4CF7800A33FE0 /* ApplicationDelegate.m in Sources */,
+				D0454BE315B4D0F600A33FE0 /* DocumentController.m in Sources */,
+				D0454BE615B4D4CC00A33FE0 /* NewDocumentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

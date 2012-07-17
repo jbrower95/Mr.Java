@@ -20,13 +20,12 @@
     [controller.window makeKeyAndOrderFront:self];
 }
 
-- (void)loadDocumentWithFilename:(NSString *)filename
+- (void)loadDocumentWithFilename:(NSURL *)filename
 {
     NSDocument *doc = [[Document alloc] init];
-    filename = [NSString stringWithFormat:@"file:/%@",filename];
-    printf("filename: %s\n",[filename UTF8String]);
-    
-    [doc readFromURL:[NSURL URLWithString:filename] ofType:@"mrj" error:nil];
+     
+    filename = [filename URLByAppendingPathExtension:@"mrj"];
+    [doc readFromURL:filename ofType:@"mrj" error:nil];
     [doc makeWindowControllers];
     [doc showWindows];
     [controller.window close];

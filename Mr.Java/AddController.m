@@ -56,8 +56,10 @@
     if ( e )
     {
         printf("Could not copy file to SRC :( %s\n",[[e localizedDescription] UTF8String]);
-   
+        return;
     }
+    NSSound *copy = [NSSound soundNamed:@"copy"];
+    [copy play];
     
     [self close];
     
@@ -66,13 +68,23 @@
 {
     NSError *e = nil;
     
+    if ( [f hasPrefix:@"file://localhost"] )
+    {
+        
+        f = [f substringFromIndex:16];
+        [f retain];
+        
+    }
+    
     [[NSFileManager defaultManager] copyItemAtPath:f toPath:[[mDir stringByAppendingPathComponent:@"LIB"] stringByAppendingPathComponent:[f lastPathComponent]] error:&e];
     
     if ( e )
     {
         printf("Could not copy file to LIB :( %s\n",[[e localizedDescription] UTF8String]);
-        
+        return;
     }
+    NSSound *copy = [NSSound soundNamed:@"copy"];
+    [copy play];
     
     [self close];
     
