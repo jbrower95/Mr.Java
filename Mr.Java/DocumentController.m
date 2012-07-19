@@ -20,6 +20,9 @@
     [controller.window makeKeyAndOrderFront:self];
 }
 
+
+
+
 - (void)loadDocumentWithFilename:(NSURL *)filename
 {
     NSDocument *doc = [[Document alloc] init];

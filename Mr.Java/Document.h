@@ -10,7 +10,7 @@
 #import "FileLoader.h"
 #import "NSMView.h"
 #import "AddController.h"
-@interface Document : NSDocument
+@interface Document : NSDocument <NSComboBoxDataSource, NSComboBoxDelegate>
 {
     NSString *documentName;
     NSString *documentDir;
@@ -29,9 +29,12 @@
     
     BOOL buildAndRunOn;
     
+    IBOutlet NSComboBox *classesBox;
+    
+    NSMutableArray *classes;
 }
 
-
+- (IBAction)help:(id)sender;
 - (IBAction)build:(id)sender;
 
 - (IBAction)run:(id)sender;

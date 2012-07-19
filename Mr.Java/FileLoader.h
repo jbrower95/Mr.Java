@@ -58,8 +58,9 @@
 // MAIN_DIR      NSString *
 // CLASS_PATH     NSArray &
 
+- (void)changeMainClass:(NSString *)n;
 
-
+- (NSData *)generateData;
 
 
 @end

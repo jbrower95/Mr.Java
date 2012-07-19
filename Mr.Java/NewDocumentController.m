@@ -91,7 +91,7 @@
     
     
     
-    NSString *mainC = ([mainClass stringValue].length == 0) ? @"__NONE__" : [mainClass stringValue];
+    NSString *mainC = ([mainClass stringValue].length == 0) ? @"^&__NONE__&^" : [mainClass stringValue];
     
     NSMutableString *fileContents = [[NSMutableString alloc] init];
     

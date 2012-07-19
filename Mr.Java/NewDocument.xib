@@ -68,7 +68,7 @@
 									<double key="NSSize">13</double>
 									<int key="NSfFlags">1044</int>
 								</object>
-								<string key="NSPlaceholderString">This is where the magic happens!</string>
+								<string key="NSPlaceholderString">This is where your project will be housed</string>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="864101368"/>
 								<bool key="NSDrawsBackground">YES</bool>
@@ -137,7 +137,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="783503789">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">*The above directory will be created if it does not exist*</string>
+								<string key="NSContents">*The below directories will be created if they do not exist*</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">12</double>
@@ -305,6 +305,7 @@
 							<string key="NSFrame">{{557, 17}, {25, 25}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1553</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="811263919">

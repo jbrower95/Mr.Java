@@ -36,14 +36,22 @@
     
     documentName = [[NSString alloc] initWithString:@"Untitled"];
     [projectname setStringValue:documentName];
-    
+    classes = [[NSMutableArray alloc] init];
     if ( fileLoader )
     {
         documentName = [[fileLoader propertyForKey:@"PROJECT_NAME"] retain];
         mainClass = [[fileLoader propertyForKey:@"MAIN_CLASS"] retain];
         [projectname setStringValue:[fileLoader propertyForKey:@"PROJECT_NAME"]];
         
+        
+        
+        [self senseClasses];
+        
         [aController.window setTitle:documentName];
+        
+        
+        [classesBox setStringValue:([[fileLoader propertyForKey:@"MAIN_CLASS"] isEqualToString:@"__NONE__"] ? @"" : [fileLoader propertyForKey:@"MAIN_CLASS"])];
+        
         
     }
     [checkMark setHidden:YES];
@@ -77,8 +85,120 @@
     
 }
 
+- (void)senseClasses
+{
+    // all classes are found in /CLS
+    
+    [classes removeAllObjects];
+    NSError *e = nil;
+    
+    NSFileManager *steve = [NSFileManager defaultManager];
+    NSArray *contents = [steve contentsOfDirectoryAtPath:[[fileLoader propertyForKey:@"MAIN_DIR"] stringByAppendingPathComponent:@"CLS"] error:&e];
+    
+    
+    if ( e )
+    {
+        // we had an uh oh
+        NSAlert *a = [NSAlert alertWithMessageText:@"Error!" defaultButton:@"Okay" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:@"Directory enumeration failed in CLS: Could not sense classes (%@)",[e localizedDescription]];
+         [a runModal];
+        return;
+    }
+    
+    // otherwise, lets get to work
+    
+    for (NSString *entry in contents )
+    {
+        BOOL dir;
+        if ( [steve fileExistsAtPath:[[[fileLoader propertyForKey:@"MAIN_DIR"] stringByAppendingPathComponent:@"CLS/"] stringByAppendingPathComponent:entry] isDirectory:&dir] && dir == NO )
+        {
+            
+            
+            // it's a valid file.. check for the .class suffix
+            
+            if ( [entry hasSuffix:@".class"] )
+            {
+                
+                // now we're getting somewhere... we've found a class file. 
+                
+                NSString *chopped = [entry substringToIndex:[entry rangeOfString:@".class"].location];
+                [classes addObject:chopped];
+                
+                
+                
+            }
+            
+            
+            
+            
+            
+        }
+        
+        
+        
+        
+    }
+    
+    
+[classesBox reloadData];
+    
+}
+
+- (IBAction)help:(id)sender
+{
+    
+    NSAlert *helpPopup = [NSAlert alertWithMessageText:@"Help" defaultButton:@"Okay" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:@"This is the class that will be executed when you hit either \"run\" or \"build and run\". As such, it is necessary that you select a class before executing!"];
+    [helpPopup runModal];
+  
+}
+
+- (void)comboBoxSelectionDidChange:(NSNotification *)notification
+{
+    // this is all we care about
+    printf("changing main class..\n");
+    [fileLoader changeMainClass:(NSString *)[classes objectAtIndex:[classesBox indexOfSelectedItem]]];
+
+    //[self save];
+    
+}
+
+- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
+{
+    if ( control == classesBox )
+    {
+        NSString *text = [fieldEditor string];
+        
+        [fileLoader changeMainClass:text];
+    }
+    
+    return YES;
+    
+}
 
 
+
+// combo box code
+
+- (id)comboBox:(NSComboBox *)aComboBox objectValueForItemAtIndex:(NSInteger)index
+{
+    
+    
+    
+    return [classes objectAtIndex:index] ? [classes objectAtIndex:index] : @"";
+    
+    
+    
+    
+    
+}
+
+- (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox
+{
+    
+    return [classes count] ? [classes count] : 0;
+    
+    
+    
+}
 
 
 
@@ -92,8 +212,7 @@
 {
     // Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
     // You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-    NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
-    @throw exception;
+    return [fileLoader generateData];
     return nil;
 }
 
@@ -304,7 +423,7 @@
     
     [arguments addObject:classP];
 
-    
+    printf("Executing class: %s\n",[[fileLoader propertyForKey:@"MAIN_CLASS"] UTF8String] );
     [arguments addObject:[fileLoader propertyForKey:@"MAIN_CLASS"]];
     
     
@@ -318,6 +437,9 @@
     [task launch];
     
     //
+    
+    
+    
     
     
     
