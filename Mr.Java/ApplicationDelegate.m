@@ -21,4 +21,16 @@
     // stops a random window from popping up
     
 }
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
+{
+    // lets start our server
+    [docController startUp];
+    
+    
+    
+}
+
+
+
 @end

@@ -9,9 +9,24 @@
 #import <Cocoa/Cocoa.h>
 #import "NewDocumentController.h"
 #import "Document.h"
-@interface DocumentController : NSDocumentController
+#import "Server.h"
+@interface DocumentController : NSDocumentController <ServerDelegate>
 {
     NewDocumentController *controller;
     
+    Server *server;
+	NSMutableArray *services;
+	NSString *textToSend, *message;
+	NSInteger selectedRow, connectedRow;
+	BOOL isConnectedToService;
+    
+    
 }
+
+@property(nonatomic, retain) Server *server;
+@property(nonatomic, retain) NSMutableArray *services;
+@property(readwrite, copy) NSString *message;
+@property(readwrite, nonatomic) BOOL isConnectedToService;
+
+- (void)startUp;
 @end

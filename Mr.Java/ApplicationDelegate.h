@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Server.h"
+/*
+ Application listens on port 49200
+ */
 
 @interface ApplicationDelegate : NSObject <NSApplicationDelegate>
-
+{
+    IBOutlet NSDocumentController *docController;
+}
 @end

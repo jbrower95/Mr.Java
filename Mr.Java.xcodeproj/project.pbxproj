@@ -30,6 +30,10 @@
 		D0454BE315B4D0F600A33FE0 /* DocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0454BE215B4D0F600A33FE0 /* DocumentController.m */; };
 		D0454BE615B4D4CC00A33FE0 /* NewDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0454BE515B4D4CC00A33FE0 /* NewDocumentController.m */; };
 		D0454BE815B4D50C00A33FE0 /* NewDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0454BE715B4D50C00A33FE0 /* NewDocument.xib */; };
+		D04FC83015B8FBE800AF2EE7 /* coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = D04FC82F15B8FBE800AF2EE7 /* coffee.png */; };
+		D04FC83315B8FF0E00AF2EE7 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D04FC83215B8FF0E00AF2EE7 /* icon.icns */; };
+		D07D05D115B9FFCF00379915 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D05D015B9FFCF00379915 /* Server.m */; };
+		D07D05D215B9FFCF00379915 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D05D015B9FFCF00379915 /* Server.m */; };
 		D09B941015B51EFB0086088C /* copy.wav in Resources */ = {isa = PBXBuildFile; fileRef = D09B940F15B51EFB0086088C /* copy.wav */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +86,10 @@
 		D0454BE415B4D4CC00A33FE0 /* NewDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDocumentController.h; sourceTree = "<group>"; };
 		D0454BE515B4D4CC00A33FE0 /* NewDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDocumentController.m; sourceTree = "<group>"; };
 		D0454BE715B4D50C00A33FE0 /* NewDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewDocument.xib; sourceTree = "<group>"; };
+		D04FC82F15B8FBE800AF2EE7 /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffee.png; sourceTree = "<group>"; };
+		D04FC83215B8FF0E00AF2EE7 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		D07D05CF15B9FFCF00379915 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		D07D05D015B9FFCF00379915 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 		D09B940F15B51EFB0086088C /* copy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = copy.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +117,8 @@
 		D0454B3315B3CE1200A33FE0 = {
 			isa = PBXGroup;
 			children = (
+				D04FC83215B8FF0E00AF2EE7 /* icon.icns */,
+				D04FC82F15B8FBE800AF2EE7 /* coffee.png */,
 				D0454B4815B3CE1200A33FE0 /* Mr.Java */,
 				D0454B6815B3CE1300A33FE0 /* Mr.JavaTests */,
 				D0454B4115B3CE1200A33FE0 /* Frameworks */,
@@ -184,6 +194,8 @@
 				D0454B4E15B3CE1300A33FE0 /* main.m */,
 				D0454B5015B3CE1300A33FE0 /* Mr.Java-Prefix.pch */,
 				D0454B5115B3CE1300A33FE0 /* Credits.rtf */,
+				D07D05CF15B9FFCF00379915 /* Server.h */,
+				D07D05D015B9FFCF00379915 /* Server.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -288,6 +300,8 @@
 				D0454BDD15B4AC4B00A33FE0 /* redx.png in Resources */,
 				D0454BE815B4D50C00A33FE0 /* NewDocument.xib in Resources */,
 				D09B941015B51EFB0086088C /* copy.wav in Resources */,
+				D04FC83015B8FBE800AF2EE7 /* coffee.png in Resources */,
+				D04FC83315B8FF0E00AF2EE7 /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +344,7 @@
 				D0454BE015B4CF7800A33FE0 /* ApplicationDelegate.m in Sources */,
 				D0454BE315B4D0F600A33FE0 /* DocumentController.m in Sources */,
 				D0454BE615B4D4CC00A33FE0 /* NewDocumentController.m in Sources */,
+				D07D05D115B9FFCF00379915 /* Server.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0454B7015B3CE1300A33FE0 /* Mr_JavaTests.m in Sources */,
+				D07D05D215B9FFCF00379915 /* Server.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

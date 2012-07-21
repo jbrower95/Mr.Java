@@ -54,11 +54,12 @@
         
         
     }
+    [self senseClasses];
     [checkMark setHidden:YES];
     [crossMark setHidden:YES];
     [mainView registerForDraggedTypes:[NSArray arrayWithObjects:NSFileContentsPboardType,NSURLPboardType,nil]];
     
-        
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(senseClasses) userInfo:nil repeats:YES];
 }
 
 

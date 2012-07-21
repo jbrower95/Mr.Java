@@ -117,6 +117,7 @@
     
     
     [ref loadDocumentWithFilename:dump];
+    
     [self close];
     
     
