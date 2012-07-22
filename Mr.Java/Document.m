@@ -9,7 +9,7 @@
 #import "Document.h"
 
 @implementation Document
-@synthesize projectname;
+@synthesize projectname, fileLoader;
 - (id)init
 {
     self = [super init];

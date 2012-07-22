@@ -77,7 +77,7 @@
        
        if ( [message isEqualToString:@"getProjs"] )
        {
-           printf("Responding to \"getProjs\" request!\n\n\n");
+           printf("Server: Posting list of projects open\n\n\n");
            NSMutableString *response = [NSMutableString string];
            [response appendFormat:@"mrj100\n"];
            [response appendFormat:@"__PROJLIST__\n"];
@@ -103,6 +103,37 @@
        {
            // we're gonna copy the project
            
+           
+       }
+       
+       if ( [message hasPrefix:@"projDetails:"] )
+       {
+           printf("Server: Posting details for project\n\n\n");
+           
+           NSString *block = @"projDetails:";
+           int num = -1;
+           num = [[message substringFromIndex:[message rangeOfString:block].location] intValue];
+           printf("Requested Project #: %d\n\n",num);
+           
+           NSMutableString *response = [NSMutableString string];
+           [response appendFormat:@"mrj100\n"];
+           [response appendFormat:@"__PROJDETAILS__\n"];
+           NSString *d = [[[[self documents] objectAtIndex:num] fileLoader] propertyForKey:@"PROJECT_NAME"];
+           [response appendFormat:@"%@\n",d];
+           
+           d = [[[[self documents] objectAtIndex:num] fileLoader] propertyForKey:@"MAIN_CLASS"];
+           [response appendFormat:@"%@\n",d];
+           d = [[[[self documents] objectAtIndex:num] fileLoader] propertyForKey:@"MAIN_DIR"];
+           [response appendFormat:@"%@\n",d];
+           NSLog(@"Response: %@",response);
+           NSData *datas = [response dataUsingEncoding:NSUTF8StringEncoding];
+           NSError *e;
+           [server sendData:datas error:&e];
+           if ( e )
+           {
+               NSLog(@"Failed sending back information: %@",[e localizedDescription]);
+
+           }
            
        }
        

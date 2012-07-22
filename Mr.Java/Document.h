@@ -33,7 +33,7 @@
     
     NSMutableArray *classes;
 }
-
+@property (nonatomic, retain) FileLoader *fileLoader;
 - (IBAction)help:(id)sender;
 - (IBAction)build:(id)sender;
 
