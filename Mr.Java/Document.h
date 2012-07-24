@@ -32,6 +32,10 @@
     IBOutlet NSComboBox *classesBox;
     
     NSMutableArray *classes;
+    
+    NSFileHandle *runHandle;
+    
+    NSFileHandle *stdoutFile;
 }
 @property (nonatomic, retain) FileLoader *fileLoader;
 - (IBAction)help:(id)sender;

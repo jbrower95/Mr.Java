@@ -395,6 +395,16 @@
 {
     buildAndRunOn = NO;
     NSTask *task = [[NSTask alloc] init];
+    
+    NSPipe *_STDOUT = [NSPipe pipe];
+    
+    [task setStandardError:_STDOUT];
+    [task setStandardOutput:_STDOUT];
+    
+    runHandle = [_STDOUT fileHandleForReading];
+    [runHandle retain];
+    [runHandle waitForDataInBackgroundAndNotify];
+    
     [task setLaunchPath:@"/usr/bin/java"];
     [task setCurrentDirectoryPath:[fileLoader propertyForKey:@"MAIN_DIR"]];
     
@@ -436,13 +446,39 @@
     [task setArguments:arguments];
     
     [task launch];
+  
+}
+- (void) dataAvailable: (NSNotification*)notification
+{
+	// read data directly from the fd
+    printf("Data available!\n");
+    NSData *newData = [runHandle availableData];
     
-    //
+    [self appendDataToSTDOUT:newData];
     
+	[runHandle waitForDataInBackgroundAndNotify];
+}
+
+
+- (void)appendDataToSTDOUT:(NSData *)d
+{
+    if ( !stdoutFile )
+    {
+        // check to see if stdout exists
+        
+        if ( ![[NSFileManager defaultManager] fileExistsAtPath:[[fileLoader propertyForKey:@"MAIN_DIR"] stringByAppendingPathComponent:@"stdout.txt"] isDirectory:nil])
+        {
+            [[NSFileManager defaultManager] createFileAtPath:[[fileLoader propertyForKey:@"MAIN_DIR"] stringByAppendingPathComponent:@"stdout.txt"] contents:nil attributes:nil];
+        }
+        
+        stdoutFile = [NSFileHandle fileHandleForUpdatingAtPath:[[fileLoader propertyForKey:@"MAIN_DIR"] stringByAppendingPathComponent:@"stdout.txt"]];
+        [stdoutFile seekToEndOfFile];
+        [stdoutFile writeData:[@"-----------------\nCommencing launching of application...\n\n--------------------\n\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
+    }
     
-    
-    
+    [stdoutFile seekToEndOfFile];
+    [stdoutFile writeData:d];
     
     
     
@@ -450,6 +486,9 @@
     
     
 }
+
+
+
 - (NSString *)displayName
 {
     return ([fileLoader propertyForKey:@"PROJECT_NAME"] ? [fileLoader propertyForKey:@"PROJECT_NAME"] : [super displayName]);
