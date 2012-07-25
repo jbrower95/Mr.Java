@@ -394,6 +394,12 @@
 {
     buildAndRunOn = NO;
     NSTask *task = [[NSTask alloc] init];
+    
+    NSPipe *output = [NSPipe pipe];
+    
+    [task setStandardOutput:output];
+    [task setStandardError:output];
+    
     [task setLaunchPath:@"/usr/bin/java"];
     [task setCurrentDirectoryPath:[fileLoader propertyForKey:@"MAIN_DIR"]];
     
@@ -438,8 +444,31 @@
     
     //
     
+    NSFileHandle *_out = [output fileHandleForReading];
     
+    NSData *results = [_out readDataToEndOfFile];
     
+    if ( ![[NSFileManager defaultManager] fileExistsAtPath:[[fileLoader propertyForKey:@"MAIN_DIR"] stringByAppendingPathComponent:@"__PROGOUTPUT.txt"]])
+    {
+        
+        [[NSFileManager defaultManager] createFileAtPath:[[fileLoader propertyForKey:@"MAIN_DIR"] stringByAppendingPathComponent:@"__PROGOUTPUT.txt"] contents:results attributes:nil];
+        
+        
+    }
+    else
+    {
+        
+        NSFileHandle *progOutput = [NSFileHandle fileHandleForWritingAtPath:[[fileLoader propertyForKey:@"MAIN_DIR"] stringByAppendingPathComponent:@"__PROGOUTPUT.txt"]];
+        
+        [progOutput seekToEndOfFile];
+        
+        [progOutput writeData:[@"Starting new instance...\n----------------------\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [progOutput writeData:results];
+        
+        [progOutput closeFile];
+        
+        
+    }
     
     
     
