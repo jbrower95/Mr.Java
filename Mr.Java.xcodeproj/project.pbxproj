@@ -11,7 +11,6 @@
 		D0454B4D15B3CE1300A33FE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0454B4B15B3CE1200A33FE0 /* InfoPlist.strings */; };
 		D0454B4F15B3CE1300A33FE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0454B4E15B3CE1300A33FE0 /* main.m */; };
 		D0454B5315B3CE1300A33FE0 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D0454B5115B3CE1300A33FE0 /* Credits.rtf */; };
-		D0454B5615B3CE1300A33FE0 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = D0454B5515B3CE1300A33FE0 /* Document.m */; };
 		D0454B5915B3CE1300A33FE0 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0454B5715B3CE1300A33FE0 /* Document.xib */; };
 		D0454B5C15B3CE1300A33FE0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0454B5A15B3CE1300A33FE0 /* MainMenu.xib */; };
 		D0454B6415B3CE1300A33FE0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0454B6315B3CE1300A33FE0 /* SenTestingKit.framework */; };
@@ -32,6 +31,7 @@
 		D0454BE815B4D50C00A33FE0 /* NewDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0454BE715B4D50C00A33FE0 /* NewDocument.xib */; };
 		D04FC83015B8FBE800AF2EE7 /* coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = D04FC82F15B8FBE800AF2EE7 /* coffee.png */; };
 		D04FC83315B8FF0E00AF2EE7 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D04FC83215B8FF0E00AF2EE7 /* icon.icns */; };
+		D06461CF15C0C6820033248E /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = D06461CE15C0C6820033248E /* Document.m */; };
 		D07D05D115B9FFCF00379915 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D05D015B9FFCF00379915 /* Server.m */; };
 		D07D05D215B9FFCF00379915 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D05D015B9FFCF00379915 /* Server.m */; };
 		D09B941015B51EFB0086088C /* copy.wav in Resources */ = {isa = PBXBuildFile; fileRef = D09B940F15B51EFB0086088C /* copy.wav */; };
@@ -59,7 +59,6 @@
 		D0454B5015B3CE1300A33FE0 /* Mr.Java-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mr.Java-Prefix.pch"; sourceTree = "<group>"; };
 		D0454B5215B3CE1300A33FE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		D0454B5415B3CE1300A33FE0 /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
-		D0454B5515B3CE1300A33FE0 /* Document.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		D0454B5815B3CE1300A33FE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Document.xib; sourceTree = "<group>"; };
 		D0454B5B15B3CE1300A33FE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D0454B6215B3CE1300A33FE0 /* Mr.JavaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Mr.JavaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +87,7 @@
 		D0454BE715B4D50C00A33FE0 /* NewDocument.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewDocument.xib; sourceTree = "<group>"; };
 		D04FC82F15B8FBE800AF2EE7 /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffee.png; sourceTree = "<group>"; };
 		D04FC83215B8FF0E00AF2EE7 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		D06461CE15C0C6820033248E /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		D07D05CF15B9FFCF00379915 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		D07D05D015B9FFCF00379915 /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 		D09B940F15B51EFB0086088C /* copy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = copy.wav; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				D0454BE115B4D0F600A33FE0 /* DocumentController.h */,
 				D0454BE215B4D0F600A33FE0 /* DocumentController.m */,
 				D0454B5415B3CE1300A33FE0 /* Document.h */,
-				D0454B5515B3CE1300A33FE0 /* Document.m */,
+				D06461CE15C0C6820033248E /* Document.m */,
 				D0454B5715B3CE1300A33FE0 /* Document.xib */,
 				D0454B5A15B3CE1300A33FE0 /* MainMenu.xib */,
 				D0454BDC15B4AC4B00A33FE0 /* redx.png */,
@@ -337,7 +337,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0454B4F15B3CE1300A33FE0 /* main.m in Sources */,
-				D0454B5615B3CE1300A33FE0 /* Document.m in Sources */,
 				D0454B7B15B3D5C600A33FE0 /* FileLoader.m in Sources */,
 				D0454BCC15B4884600A33FE0 /* NSMView.m in Sources */,
 				D0454BD515B48BEA00A33FE0 /* AddController.m in Sources */,
@@ -345,6 +344,7 @@
 				D0454BE315B4D0F600A33FE0 /* DocumentController.m in Sources */,
 				D0454BE615B4D4CC00A33FE0 /* NewDocumentController.m in Sources */,
 				D07D05D115B9FFCF00379915 /* Server.m in Sources */,
+				D06461CF15C0C6820033248E /* Document.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

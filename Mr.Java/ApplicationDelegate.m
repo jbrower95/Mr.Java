@@ -25,7 +25,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
     // lets start our server
-    [docController startUp];
+   // [docController startUp];
     
     
     
